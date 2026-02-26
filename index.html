@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>East Texas Trial Attorney | Russell R. Smith</title>
+<meta name="description" content="30+ years in Texas courts. Russell R. Smith handles civil litigation, malpractice & more. Schedule your free consultation today."/>
+<meta name="robots" content="index, follow"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Russell R. Smith, Attorney at Law",
+  "description": "East Texas trial attorney with 30+ years of experience in civil litigation, malpractice, oil & gas, employment law, and more.",
+  "areaServed": ["East Texas", "Nacogdoches, TX", "Texas"],
+  "address": {"@type": "PostalAddress","addressRegion": "TX","addressLocality": "Nacogdoches","addressCountry": "US"},
+  "founder": {"@type": "Person","name": "Russell R. Smith","jobTitle": "Trial Attorney"}
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<style>
+:root{--gold:#C9A84C;--gold-light:#E8C96A;--dark:#0D0B07;--dark-brown:#1A1208;--dark-mid:#1E1810;--cream:#F5F0E4;--cream-light:#FAF7F0;--text-dark:#1A1208;--text-muted:#6B5E45}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;font-size:16px;background:var(--cream-light);color:var(--text-dark);overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif}
+#entrance{position:fixed;inset:0;background:var(--dark-brown);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none}
+#entrance-canvas{position:absolute;inset:0;width:100%;height:100%}
+#entrance-name{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,7vw,5.5rem);font-weight:300;color:var(--gold);letter-spacing:.15em;text-align:center;opacity:0;position:relative;z-index:2;text-shadow:0 0 40px rgba(201,168,76,.8),0 0 80px rgba(201,168,76,.4)}
+#entrance-title{font-family:'Montserrat',sans-serif;font-size:clamp(.75rem,2vw,1rem);font-weight:300;color:rgba(201,168,76,.7);letter-spacing:.4em;text-transform:uppercase;text-align:center;opacity:0;position:relative;z-index:2;margin-top:1rem}
+#entrance-line{width:0;height:1px;background:var(--gold);position:relative;z-index:2;margin:1.5rem auto 0;opacity:.6}
+#main-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(13,11,7,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,.15);transition:all .3s}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;height:70px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;color:var(--gold);letter-spacing:.05em;text-decoration:none}
+.logo span{color:rgba(201,168,76,.6);font-weight:300;font-size:.9rem;display:block;letter-spacing:.15em}
+nav a{color:rgba(245,240,228,.75);text-decoration:none;font-size:.75rem;font-weight:400;letter-spacing:.15em;text-transform:uppercase;margin:0 1.2rem;transition:color .3s}
+nav a:hover{color:var(--gold)}
+.header-cta{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:.6rem 1.4rem;font-size:.7rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:all .3s;font-family:'Montserrat',sans-serif;min-height:44px;min-width:44px;text-decoration:none;display:inline-flex;align-items:center}
+.header-cta:hover{background:var(--gold);color:var(--dark)}
+#hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;min-height:44px;min-width:44px;align-items:center;justify-content:center;background:none;border:none}
+#hamburger span{display:block;width:24px;height:1.5px;background:var(--gold);transition:all .3s}
+#mobile-menu{display:none;position:fixed;inset:0;background:var(--dark-brown);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+#mobile-menu.open{display:flex}
+#mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:2.5rem;color:var(--cream);text-decoration:none;font-weight:300;letter-spacing:.1em;transition:color .3s}
+#mobile-menu a:hover{color:var(--gold)}
+#mobile-menu .mobile-cta{font-family:'Montserrat',sans-serif;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;border:1px solid var(--gold);color:var(--gold);padding:1rem 2.5rem;min-height:44px}
+#close-menu{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:var(--gold);font-size:2rem;cursor:pointer;min-height:44px;min-width:44px;display:flex;align-items:center;justify-content:center}
+#hero{min-height:100vh;background:var(--dark-brown);position:relative;display:flex;align-items:center;overflow:hidden}
+#hero-canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.4}
+.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:8rem 2rem 4rem;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(201,168,76,.3);color:var(--gold);font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;padding:.5rem 1rem;margin-bottom:2rem;font-family:'Montserrat',sans-serif}
+.hero-badge::before{content:'';display:block;width:6px;height:6px;background:var(--gold);border-radius:50%}
+h1.hero-headline{font-size:clamp(2.8rem,6vw,5.5rem);font-weight:300;color:var(--cream);line-height:1.1;letter-spacing:-.01em;max-width:800px;margin-bottom:1.5rem}
+h1.hero-headline em{color:var(--gold);font-style:italic;font-weight:300}
+.hero-sub{font-size:1rem;font-weight:300;color:rgba(245,240,228,.65);max-width:560px;line-height:1.8;margin-bottom:3rem;letter-spacing:.02em}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:1rem;align-items:center}
+.btn-primary{background:var(--gold);color:var(--dark);padding:1rem 2.2rem;font-size:.75rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:.6rem;transition:all .3s;min-height:54px;font-family:'Montserrat',sans-serif;position:relative;overflow:hidden}
+.btn-primary:hover{box-shadow:0 0 30px rgba(201,168,76,.5);opacity:.9}
+.btn-secondary{background:transparent;color:rgba(245,240,228,.8);padding:1rem 2rem;font-size:.75rem;font-weight:400;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:.6rem;border:1px solid rgba(245,240,228,.2);transition:all .3s;min-height:54px;font-family:'Montserrat',sans-serif}
+.btn-secondary:hover{border-color:var(--gold);color:var(--gold)}
+.hero-glass{position:absolute;right:2rem;top:50%;transform:translateY(-50%);width:320px;background:rgba(201,168,76,.04);border:1px solid rgba(201,168,76,.12);backdrop-filter:blur(20px);padding:2.5rem;display:flex;flex-direction:column;gap:2rem}
+.stat-item{text-align:center}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:var(--gold);line-height:1}
+.stat-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,240,228,.5);margin-top:.4rem;font-family:'Montserrat',sans-serif}
+.stat-divider{height:1px;background:rgba(201,168,76,.15)}
+#features{background:var(--cream-light);padding:7rem 2rem}
+.section-label{font-size:.65rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);font-family:'Montserrat',sans-serif;margin-bottom:1rem;display:flex;align-items:center;gap:.8rem}
+.section-label::before{content:'';display:block;width:30px;height:1px;background:var(--gold)}
+.section-title{font-size:clamp(2rem,4vw,3.2rem);font-weight:300;color:var(--text-dark);line-height:1.15;margin-bottom:1rem}
+.section-title em{color:#8B6914;font-style:italic}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:4rem;background:rgba(201,168,76,.1)}
+.feature-card{background:var(--cream-light);padding:2.5rem 2rem;transition:all .4s;position:relative;overflow:hidden}
+.feature-card::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--gold);transition:width .4s}
+.feature-card:hover::after{width:100%}
+.feature-card:hover{background:#FBF8F0}
+.feature-icon{width:44px;height:44px;color:var(--gold);margin-bottom:1.2rem}
+.feature-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--text-dark);margin-bottom:.6rem;line-height:1.3}
+.feature-desc{font-size:.82rem;color:var(--text-muted);line-height:1.8;font-weight:300}
+#about{background:var(--dark-brown);padding:8rem 2rem;position:relative;overflow:hidden}
+#about::before{content:'LAW';position:absolute;right:-2rem;top:50%;transform:translateY(-50%);font-family:'Cormorant Garamond',serif;font-size:22rem;font-weight:700;color:rgba(201,168,76,.03);pointer-events:none;line-height:1}
+.about-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;position:relative;z-index:1}
+.about-left .section-label{color:var(--gold)}
+.about-left .section-title{color:var(--cream)}
+.about-left .section-title em{color:var(--gold)}
+.about-text{font-size:.9rem;color:rgba(245,240,228,.65);line-height:2;font-weight:300;margin-bottom:1.5rem}
+.about-text strong{color:var(--gold);font-weight:500}
+.about-cta-soft{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-style:italic;color:rgba(201,168,76,.8);line-height:1.5;margin-top:2rem;padding-left:1.5rem;border-left:2px solid rgba(201,168,76,.3)}
+.credentials-list{display:flex;flex-direction:column;gap:1.5rem}
+.cred-item{display:flex;align-items:flex-start;gap:1rem;padding:1.5rem;border:1px solid rgba(201,168,76,.1);transition:border-color .3s}
+.cred-item:hover{border-color:rgba(201,168,76,.3)}
+.cred-icon{color:var(--gold);width:20px;height:20px;flex-shrink:0;margin-top:2px}
+.cred-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--cream);margin-bottom:.2rem}
+.cred-sub{font-size:.75rem;color:rgba(245,240,228,.45);font-weight:300;letter-spacing:.05em}
+#practice{background:var(--cream-light);padding:7rem 2rem}
+.practice-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:4rem}
+.practice-card{border:1px solid rgba(201,168,76,.2);padding:2rem 1.5rem;transition:all .35s;position:relative;background:white}
+.practice-card:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 20px 50px rgba(201,168,76,.1)}
+.practice-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:rgba(201,168,76,.15);line-height:1;margin-bottom:.5rem}
+.practice-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--text-dark);line-height:1.3}
+#trust{background:#0F0C07;padding:7rem 2rem;position:relative;overflow:hidden}
+.trust-inner{max-width:1200px;margin:0 auto}
+.authority-bar{display:flex;flex-wrap:wrap;justify-content:center;gap:0;margin-top:4rem;border:1px solid rgba(201,168,76,.1)}
+.authority-item{flex:1;min-width:200px;padding:2rem 1.5rem;text-align:center;border-right:1px solid rgba(201,168,76,.1);transition:background .3s}
+.authority-item:last-child{border-right:none}
+.authority-item:hover{background:rgba(201,168,76,.04)}
+.authority-icon{color:var(--gold);margin:0 auto .8rem;display:block}
+.authority-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--cream);margin-bottom:.3rem}
+.authority-sub{font-size:.7rem;color:rgba(245,240,228,.35);letter-spacing:.08em;font-weight:300}
+.testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:5rem}
+.testimonial{padding:2.5rem;border:1px solid rgba(201,168,76,.1);position:relative;transition:border-color .3s}
+.testimonial:hover{border-color:rgba(201,168,76,.3)}
+.testimonial::before{content:'\201C';font-family:'Cormorant Garamond',serif;font-size:6rem;color:rgba(201,168,76,.15);position:absolute;top:-.5rem;left:1.5rem;line-height:1}
+.testimonial-text{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:rgba(245,240,228,.7);line-height:1.8;margin-bottom:1.5rem;position:relative;z-index:1}
+.testimonial-author{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:400}
+#convert{background:var(--dark-brown);padding:8rem 2rem;text-align:center;position:relative;overflow:hidden}
+#convert::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,168,76,.06) 0%,transparent 70%);pointer-events:none}
+.convert-inner{max-width:700px;margin:0 auto;position:relative;z-index:1}
+.convert-title{font-size:clamp(2.5rem,5vw,4rem);font-weight:300;color:var(--cream);line-height:1.15;margin-bottom:1.5rem}
+.convert-title em{color:var(--gold);font-style:italic}
+.convert-text{font-size:.95rem;color:rgba(245,240,228,.6);line-height:1.9;font-weight:300;margin-bottom:3rem}
+.convert-ctas{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
+.btn-whatsapp{background:var(--gold);color:var(--dark);padding:1.1rem 2.5rem;font-size:.75rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:.7rem;transition:all .3s;min-height:56px;font-family:'Montserrat',sans-serif}
+.btn-whatsapp:hover{box-shadow:0 0 40px rgba(201,168,76,.6);opacity:.9}
+.btn-email-cta{background:transparent;color:var(--cream);padding:1.1rem 2.5rem;font-size:.75rem;font-weight:400;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:.7rem;border:1px solid rgba(245,240,228,.25);transition:all .3s;min-height:56px;font-family:'Montserrat',sans-serif}
+.btn-email-cta:hover{border-color:var(--gold);color:var(--gold)}
+#contact{background:var(--cream-light);padding:7rem 2rem}
+.contact-inner{max-width:700px;margin:0 auto}
+.form-group{margin-bottom:1.5rem}
+label{display:block;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.5rem;font-family:'Montserrat',sans-serif;font-weight:400}
+input,select,textarea{width:100%;background:white;border:1px solid rgba(201,168,76,.2);color:var(--text-dark);padding:.9rem 1.2rem;font-size:.9rem;font-family:'Montserrat',sans-serif;font-weight:300;transition:border-color .3s;outline:none;-webkit-appearance:none;border-radius:0}
+input:focus,select:focus,textarea:focus{border-color:var(--gold)}
+textarea{resize:vertical;min-height:140px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.btn-submit{width:100%;background:var(--dark-brown);color:var(--gold);border:1px solid var(--gold);padding:1.1rem 2rem;font-size:.75rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:all .3s;font-family:'Montserrat',sans-serif;min-height:56px;margin-top:.5rem}
+.btn-submit:hover{background:var(--gold);color:var(--dark)}
+footer{background:#080604;padding:3rem 2rem;border-top:1px solid rgba(201,168,76,.1)}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.5rem}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;color:var(--gold)}
+.footer-trust{font-size:.7rem;color:rgba(245,240,228,.3);letter-spacing:.1em}
+.footer-links{display:flex;gap:1rem}
+.footer-links a{display:inline-flex;align-items:center;gap:.4rem;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,240,228,.4);text-decoration:none;transition:color .3s;padding:.5rem;min-height:44px;min-width:44px}
+.footer-links a:hover{color:var(--gold)}
+@media(max-width:1024px){.hero-glass{display:none}.features-grid{grid-template-columns:repeat(2,1fr)}.about-inner{grid-template-columns:1fr;gap:3rem}.practice-grid{grid-template-columns:repeat(2,1fr)}.testimonials{grid-template-columns:1fr}.authority-bar{flex-direction:column}.authority-item{border-right:none;border-bottom:1px solid rgba(201,168,76,.1)}}
+@media(max-width:768px){nav{display:none}.header-cta.desktop-only{display:none}#hamburger{display:flex}.features-grid{grid-template-columns:1fr}.practice-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.hero-ctas,.convert-ctas{flex-direction:column}.btn-primary,.btn-secondary,.btn-whatsapp,.btn-email-cta{width:100%;justify-content:center}}
+</style>
+</head>
+<body>
+
+<div id="entrance" role="presentation" aria-hidden="true">
+  <canvas id="entrance-canvas"></canvas>
+  <div id="entrance-name">Russell R. Smith</div>
+  <div id="entrance-line"></div>
+  <div id="entrance-title">Attorney at Law &nbsp;·&nbsp; East Texas</div>
+</div>
+
+<div id="mobile-menu" role="dialog" aria-label="Navigation menu" aria-modal="true">
+  <button id="close-menu" aria-label="Close navigation menu">&times;</button>
+  <a href="#about">About</a>
+  <a href="#practice">Practice Areas</a>
+  <a href="#features">Why Russell</a>
+  <a href="#contact">Contact</a>
+  <a href="#contact" class="mobile-cta">Schedule Consultation</a>
+</div>
+
+<header id="main-header" role="banner">
+  <div class="header-inner">
+    <a href="#" class="logo" aria-label="Russell R. Smith homepage">Russell R. Smith<span>Attorney at Law</span></a>
+    <nav role="navigation" aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#practice">Practice Areas</a>
+      <a href="#features">Why Russell</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="header-cta desktop-only" aria-label="Schedule a free consultation">Schedule Consultation</a>
+    <button id="hamburger" aria-label="Open navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+<section id="hero" aria-labelledby="hero-heading">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-inner">
+    <div class="hero-badge">Established 1992 · Nacogdoches, TX</div>
+    <h1 id="hero-heading" class="hero-headline">30+ Years Fighting for <em>Justice</em><br/>in East Texas Courts</h1>
+    <p class="hero-sub">From civil litigation to medical malpractice — Russell R. Smith brings courtroom experience, personal attention, and a record of results to every case.</p>
+    <div class="hero-ctas">
+      <a href="#" class="btn-primary" aria-label="Schedule a free consultation">
+        <i data-lucide="message-circle" style="width:18px;height:18px;" aria-hidden="true"></i>
+        Schedule a Free Consultation
+      </a>
+      <a href="#" class="btn-secondary" aria-label="Send an email">
+        <i data-lucide="mail" style="width:18px;height:18px;" aria-hidden="true"></i>
+        Send an Email
+      </a>
+    </div>
+  </div>
+  <div class="hero-glass" aria-hidden="true">
+    <div class="stat-item"><div class="stat-num">30+</div><div class="stat-label">Years of Trial Practice</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">Courts of Admission</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat-item"><div class="stat-num">12+</div><div class="stat-label">Areas of Practice</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat-item"><div class="stat-num">1992</div><div class="stat-label">Serving East Texas</div></div>
+  </div>
+</section>
+
+<section id="features" aria-labelledby="features-heading">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="section-label">Why Russell R. Smith</div>
+    <h2 id="features-heading" class="section-title">Experience That <em>Speaks</em> for Itself</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <i data-lucide="scale" class="feature-icon" aria-hidden="true"></i>
+        <div class="feature-title">30+ Years of Trial Experience</div>
+        <p class="feature-desc">Actively engaged in State and Federal Courts across all Texas Districts since 1992. Complex litigation is not new territory — it's home ground.</p>
+      </div>
+      <div class="feature-card">
+        <i data-lucide="landmark" class="feature-icon" aria-hidden="true"></i>
+        <div class="feature-title">Admitted to 5 Courts</div>
+        <p class="feature-desc">Texas, U.S. District Courts (Northern, Eastern, Western & Southern), U.S. Court of Appeals 5th Circuit, and U.S. Federal Court of Appeals.</p>
+      </div>
+      <div class="feature-card">
+        <i data-lucide="briefcase" class="feature-icon" aria-hidden="true"></i>
+        <div class="feature-title">Broad Practice Scope</div>
+        <p class="feature-desc">Civil litigation, medical malpractice, oil & gas, employment law, probate, premises liability, insurance, toxic torts, and more — all under one roof.</p>
+      </div>
+      <div class="feature-card">
+        <i data-lucide="handshake" class="feature-icon" aria-hidden="true"></i>
+        <div class="feature-title">Mediator &amp; Arbitrator</div>
+        <p class="feature-desc">Available for alternative dispute resolution. When courtroom battles aren't the right path, Russell provides experienced, neutral mediation services.</p>
+      </div>
+      <div class="feature-card">
+        <i data-lucide="graduation-cap" class="feature-icon" aria-hidden="true"></i>
+        <div class="feature-title">Magna Cum Laude, South Texas College of Law</div>
+        <p class="feature-desc">Dean's List, Order of the Lytae, American Jurisprudence Award. Academic excellence paired with decades of real-world courtroom performance.</p>
+      </div>
+      <div class="feature-card">
+        <i data-lucide="map-pin" class="feature-icon" aria-hidden="true"></i>
+        <div class="feature-title">Rooted in East Texas</div>
+        <p class="feature-desc">Nacogdoches County Bar Association member. Fredonia Rotary Club. TADC President 2025–2026. This community is not just where Russell works — it's where he lives.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" aria-labelledby="about-heading">
+  <div class="about-inner">
+    <div class="about-left">
+      <div class="section-label">About Russell</div>
+      <h2 id="about-heading" class="section-title">The East Texas Trial Attorney <em>Who Shows Up</em></h2>
+      <p class="about-text">Facing a legal battle in Texas is overwhelming. The stakes are high, the process is complex, and choosing the wrong attorney can cost you everything — not just money, but time, reputation, and peace of mind.</p>
+      <p class="about-text">Most people don't know where to turn when they're dealing with a <strong>medical malpractice claim</strong>, a premises liability dispute, a contract gone wrong, or a wrongful employment termination. The courtroom is not a place for inexperience.</p>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--cream);margin-bottom:1rem;line-height:1.3;">Three Decades of Proven Results</h3>
+      <p class="about-text">Russell R. Smith has spent over three decades in State and Federal Courts across <strong>East Texas</strong>, handling the full spectrum of civil litigation — from <strong>oil and gas disputes</strong> to nursing home negligence, from insurance litigation to toxic tort cases.</p>
+      <p class="about-text">His Magna Cum Laude J.D. from South Texas College of Law, combined with a Finance degree (Summa Cum Laude) from UT Austin, gives Russell a rare combination of legal precision and analytical firepower. He doesn't just argue cases — he understands the financial, business, and human stakes behind every one of them.</p>
+      <p class="about-text">Trusted by clients across Nacogdoches, East Texas, and beyond. As the current President of the <strong>Texas Association of Defense Counsel (2025–2026)</strong>, Russell stands at the forefront of legal advocacy in Texas.</p>
+      <p class="about-cta-soft">"Ready to talk through your case? A single conversation could change everything."</p>
+    </div>
+    <div class="about-right">
+      <div class="credentials-list">
+        <div class="cred-item"><i data-lucide="check-circle" class="cred-icon" aria-hidden="true"></i><div><div class="cred-title">State Bar of Texas</div><div class="cred-sub">Licensed since 1992</div></div></div>
+        <div class="cred-item"><i data-lucide="check-circle" class="cred-icon" aria-hidden="true"></i><div><div class="cred-title">U.S. District Court — All Texas Districts</div><div class="cred-sub">Northern · Eastern · Western · Southern</div></div></div>
+        <div class="cred-item"><i data-lucide="check-circle" class="cred-icon" aria-hidden="true"></i><div><div class="cred-title">U.S. Court of Appeals, 5th Circuit</div><div class="cred-sub">Admitted 1992</div></div></div>
+        <div class="cred-item"><i data-lucide="check-circle" class="cred-icon" aria-hidden="true"></i><div><div class="cred-title">U.S. Federal Court of Appeals</div><div class="cred-sub">Admitted 1994</div></div></div>
+        <div class="cred-item"><i data-lucide="check-circle" class="cred-icon" aria-hidden="true"></i><div><div class="cred-title">American Bar Association</div><div class="cred-sub">Active Member</div></div></div>
+        <div class="cred-item"><i data-lucide="check-circle" class="cred-icon" aria-hidden="true"></i><div><div class="cred-title">TADC President 2025–2026</div><div class="cred-sub">Texas Association of Defense Counsel</div></div></div>
+        <div class="cred-item"><i data-lucide="check-circle" class="cred-icon" aria-hidden="true"></i><div><div class="cred-title">Rotary International Scholar</div><div class="cred-sub">Ambassadorial Foundation Scholar · Australia 1989</div></div></div>
+        <div class="cred-item"><i data-lucide="check-circle" class="cred-icon" aria-hidden="true"></i><div><div class="cred-title">South Texas College of Law</div><div class="cred-sub">J.D. Magna Cum Laude 1991 · Dean's List · Order of the Lytae</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="practice" aria-labelledby="practice-heading">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="section-label">Areas of Practice</div>
+    <h2 id="practice-heading" class="section-title">Whatever the Case, <em>Russell Has Tried It</em></h2>
+    <div class="practice-grid">
+      <div class="practice-card"><div class="practice-num">01</div><div class="practice-name">General Civil Litigation</div></div>
+      <div class="practice-card"><div class="practice-num">02</div><div class="practice-name">Medical &amp; Legal Malpractice</div></div>
+      <div class="practice-card"><div class="practice-num">03</div><div class="practice-name">Premises Liability</div></div>
+      <div class="practice-card"><div class="practice-num">04</div><div class="practice-name">Oil &amp; Gas (Transactional &amp; Litigation)</div></div>
+      <div class="practice-card"><div class="practice-num">05</div><div class="practice-name">Insurance &amp; Tort Litigation</div></div>
+      <div class="practice-card"><div class="practice-num">06</div><div class="practice-name">Products Liability</div></div>
+      <div class="practice-card"><div class="practice-num">07</div><div class="practice-name">Environmental &amp; Toxic Torts</div></div>
+      <div class="practice-card"><div class="practice-num">08</div><div class="practice-name">Employment Law</div></div>
+      <div class="practice-card"><div class="practice-num">09</div><div class="practice-name">Automobile &amp; Truck Litigation</div></div>
+      <div class="practice-card"><div class="practice-num">10</div><div class="practice-name">Contract Disputes</div></div>
+      <div class="practice-card"><div class="practice-num">11</div><div class="practice-name">Probate</div></div>
+      <div class="practice-card"><div class="practice-num">12</div><div class="practice-name">Nursing Home Litigation</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="trust" aria-labelledby="trust-heading">
+  <div class="trust-inner">
+    <div style="text-align:center;">
+      <div class="section-label" style="justify-content:center;">Trusted &amp; Recognized</div>
+      <h2 id="trust-heading" class="section-title" style="color:var(--cream);">What Clients &amp; Peers <em>Say</em></h2>
+    </div>
+    <div class="authority-bar">
+      <div class="authority-item"><i data-lucide="award" class="authority-icon" style="width:28px;height:28px;" aria-hidden="true"></i><div class="authority-title">TADC President</div><div class="authority-sub">2025–2026</div></div>
+      <div class="authority-item"><i data-lucide="shield" class="authority-icon" style="width:28px;height:28px;" aria-hidden="true"></i><div class="authority-title">American Bar Association</div><div class="authority-sub">Active Member</div></div>
+      <div class="authority-item"><i data-lucide="globe" class="authority-icon" style="width:28px;height:28px;" aria-hidden="true"></i><div class="authority-title">Rotary International Scholar</div><div class="authority-sub">Ambassadorial Foundation</div></div>
+      <div class="authority-item"><i data-lucide="calendar" class="authority-icon" style="width:28px;height:28px;" aria-hidden="true"></i><div class="authority-title">30+ Years</div><div class="authority-sub">Active Trial Practice</div></div>
+    </div>
+    <div class="testimonials">
+      <blockquote class="testimonial">
+        <p class="testimonial-text">Russell fought for us when no one else would take our case seriously. His knowledge of Texas courts is extraordinary, and his calm under pressure gave us confidence through every step of the process.</p>
+        <cite class="testimonial-author">— Former Client, Civil Litigation</cite>
+      </blockquote>
+      <blockquote class="testimonial">
+        <p class="testimonial-text">I had a complex oil and gas dispute that had dragged on for years before I found Russell. He understood the legal and financial dimensions immediately. The outcome exceeded my expectations.</p>
+        <cite class="testimonial-author">— Former Client, Oil &amp; Gas Dispute</cite>
+      </blockquote>
+      <blockquote class="testimonial">
+        <p class="testimonial-text">What sets Russell apart is that he actually listens. He took the time to understand my situation, explained my options clearly, and delivered results. I wouldn't trust anyone else with a case in East Texas.</p>
+        <cite class="testimonial-author">— Former Client, Employment Law</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="convert" aria-labelledby="convert-heading">
+  <div class="convert-inner">
+    <div class="section-label" style="justify-content:center;">Take the First Step</div>
+    <h2 id="convert-heading" class="convert-title">Your Case Deserves an <em>Experienced Hand.</em></h2>
+    <p class="convert-text">Don't navigate the Texas legal system alone. Russell R. Smith is ready to listen, advise, and fight for you. One conversation — no pressure, no obligation — could change the trajectory of your case.</p>
+    <div class="convert-ctas">
+      <a href="#" class="btn-whatsapp" aria-label="Contact Russell via WhatsApp">
+        <i data-lucide="message-circle" style="width:20px;height:20px;" aria-hidden="true"></i>
+        Chat on WhatsApp
+      </a>
+      <a href="#" class="btn-email-cta" aria-label="Send Russell an email">
+        <i data-lucide="mail" style="width:20px;height:20px;" aria-hidden="true"></i>
+        Send an Email
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="contact" aria-labelledby="contact-heading">
+  <div class="contact-inner">
+    <div class="section-label">Get in Touch</div>
+    <h2 id="contact-heading" class="section-title" style="margin-bottom:.5rem;">Send Your <em>Message</em></h2>
+    <p style="font-size:.85rem;color:var(--text-muted);margin-bottom:3rem;font-weight:300;line-height:1.8;">Prefer to write it out? Fill in the form below and Russell's team will be in touch promptly.</p>
+    <form aria-label="Contact form" onsubmit="return false;">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Full Name *</label>
+          <input type="text" id="name" name="name" required placeholder="Your full name" aria-required="true" autocomplete="name"/>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" required placeholder="your@email.com" aria-required="true" autocomplete="email"/>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="phone">Phone Number (Optional)</label>
+          <input type="tel" id="phone" name="phone" placeholder="+1 (xxx) xxx-xxxx" autocomplete="tel"/>
+        </div>
+        <div class="form-group">
+          <label for="case-type">Case Type *</label>
+          <select id="case-type" name="case_type" required aria-required="true">
+            <option value="" disabled selected>Select case type</option>
+            <option value="civil">Civil Litigation</option>
+            <option value="malpractice">Medical Malpractice</option>
+            <option value="oil-gas">Oil &amp; Gas</option>
+            <option value="employment">Employment Law</option>
+            <option value="probate">Probate</option>
+            <option value="premises">Premises Liability</option>
+            <option value="insurance">Insurance / Tort</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="message">Your Message *</label>
+        <textarea id="message" name="message" required placeholder="Briefly describe your situation..." aria-required="true"></textarea>
+      </div>
+      <button type="submit" class="btn-submit" aria-label="Submit contact form">Send My Message</button>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Russell R. Smith</div>
+      <div class="footer-trust" style="margin-top:.3rem;">Serving East Texas with integrity since 1992.</div>
+    </div>
+    <div class="footer-links">
+      <a href="#" aria-label="Contact via WhatsApp"><i data-lucide="message-circle" style="width:16px;height:16px;" aria-hidden="true"></i> WhatsApp</a>
+      <a href="#" aria-label="Send an email"><i data-lucide="mail" style="width:16px;height:16px;" aria-hidden="true"></i> Email</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+lucide.createIcons();
+gsap.registerPlugin(ScrollTrigger);
+
+// ENTRANCE PARTICLES
+(function(){
+  const canvas=document.getElementById('entrance-canvas');
+  const ctx=canvas.getContext('2d');
+  let W,H,pts=[];
+  function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+  resize();window.addEventListener('resize',resize);
+  for(let i=0;i<120;i++)pts.push({x:Math.random()*3000,y:Math.random()*-500,size:Math.random()*2.5+0.5,speed:Math.random()*1.2+0.3,o:Math.random()*0.7+0.2,drift:(Math.random()-.5)*.4});
+  let animId;
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    pts.forEach(p=>{
+      ctx.beginPath();ctx.arc(p.x%W,p.y,p.size,0,Math.PI*2);
+      ctx.fillStyle=`rgba(201,168,76,${p.o})`;ctx.fill();
+      p.y+=p.speed;p.x+=p.drift;
+      if(p.y>H+10){p.y=-10;p.x=Math.random()*W;}
+    });
+    animId=requestAnimationFrame(draw);
+  }
+  draw();
+  const tl=gsap.timeline({onComplete:function(){
+    cancelAnimationFrame(animId);
+    gsap.to('#entrance',{yPercent:-100,duration:.9,ease:'power3.inOut',onComplete:()=>{document.getElementById('entrance').style.display='none';}});
+  }});
+  tl.to('#entrance-name',{opacity:1,duration:.7,ease:'power2.out'},0.4)
+    .to('#entrance-line',{width:180,opacity:.6,duration:.6,ease:'power2.out'},0.9)
+    .to('#entrance-title',{opacity:1,duration:.6,ease:'power2.out'},1.1)
+    .to({},{duration:.8});
+})();
+
+// HERO CANVAS
+(function(){
+  const canvas=document.getElementById('hero-canvas');
+  const ctx=canvas.getContext('2d');
+  let W,H,pts=[];
+  function resize(){W=canvas.width=canvas.offsetWidth;H=canvas.height=canvas.offsetHeight;}
+  resize();window.addEventListener('resize',resize);
+  for(let i=0;i<60;i++)pts.push({x:Math.random()*2000,y:Math.random()*1000,size:Math.random()*1.5+.3,speed:Math.random()*.4+.1,o:Math.random()*.3+.05});
+  (function loop(){
+    ctx.clearRect(0,0,W,H);
+    pts.forEach(p=>{
+      ctx.beginPath();ctx.arc(p.x%W,p.y%H,p.size,0,Math.PI*2);
+      ctx.fillStyle=`rgba(201,168,76,${p.o})`;ctx.fill();
+      p.y-=p.speed;if(p.y<-5){p.y=H+5;p.x=Math.random()*W;}
+    });
+    requestAnimationFrame(loop);
+  })();
+})();
+
+// HAMBURGER
+const hamburger=document.getElementById('hamburger');
+const mobileMenu=document.getElementById('mobile-menu');
+const closeMenu=document.getElementById('close-menu');
+hamburger.addEventListener('click',()=>{mobileMenu.classList.add('open');hamburger.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';});
+closeMenu.addEventListener('click',()=>{mobileMenu.classList.remove('open');hamburger.setAttribute('aria-expanded','false');document.body.style.overflow='';});
+mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobileMenu.classList.remove('open');hamburger.setAttribute('aria-expanded','false');document.body.style.overflow='';}));
+
+// SCROLL ANIMATIONS
+gsap.utils.toArray('.feature-card').forEach((el,i)=>gsap.from(el,{scrollTrigger:{trigger:el,start:'top 85%'},opacity:0,y:30,duration:.6,delay:i*.08,ease:'power2.out'}));
+gsap.utils.toArray('.practice-card').forEach((el,i)=>gsap.from(el,{scrollTrigger:{trigger:el,start:'top 90%'},opacity:0,y:20,duration:.5,delay:i*.05,ease:'power2.out'}));
+gsap.from('.about-left',{scrollTrigger:{trigger:'#about',start:'top 70%'},opacity:0,x:-40,duration:.9,ease:'power2.out'});
+gsap.from('.about-right',{scrollTrigger:{trigger:'#about',start:'top 70%'},opacity:0,x:40,duration:.9,delay:.2,ease:'power2.out'});
+gsap.utils.toArray('.cred-item').forEach((el,i)=>gsap.from(el,{scrollTrigger:{trigger:el,start:'top 90%'},opacity:0,x:20,duration:.5,delay:i*.07,ease:'power2.out'}));
+gsap.utils.toArray('.testimonial').forEach((el,i)=>gsap.from(el,{scrollTrigger:{trigger:el,start:'top 85%'},opacity:0,y:25,duration:.6,delay:i*.1,ease:'power2.out'}));
+gsap.utils.toArray('.authority-item').forEach((el,i)=>gsap.from(el,{scrollTrigger:{trigger:el,start:'top 90%'},opacity:0,y:15,duration:.5,delay:i*.1,ease:'power2.out'}));
+gsap.from('.convert-inner',{scrollTrigger:{trigger:'#convert',start:'top 70%'},opacity:0,y:30,duration:.8,ease:'power2.out'});
+</script>
+</body>
+</html>
